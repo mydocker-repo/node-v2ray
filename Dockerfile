@@ -1,9 +1,6 @@
 FROM node:20-alpine
-RUN apk add --no-cache tzdata curl v2ray
+RUN apk add --no-cache  v2ray
 WORKDIR /root
-RUN echo "Asia/Shanghai" > /etc/timezone
-RUN echo "alias ll='ls -la'" > /root/.bashrc && \
-    echo "PS1='\[\e[1;32m\][\W]\$\[\e[0m\] '" >> /root/.bashrc
 
 COPY config.json /etc/v2ray/config.json
 COPY key.pem /etc/v2ray/key.pem
