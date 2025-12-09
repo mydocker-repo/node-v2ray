@@ -9,10 +9,7 @@ COPY config.json /etc/v2ray/config.json
 COPY key.pem /etc/v2ray/key.pem
 COPY cert.pem /etc/v2ray/cert.pem
 
-COPY addCFIP.html /usr/share/caddy/
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod 755 /entrypoint.sh
 
-# 最终命令：启动 cron 并给 shell
-ENTRYPOINT ["/entrypoint.sh"]
+
+
 CMD ["v2ray","run","-c","/etc/v2ray/config.json"]
